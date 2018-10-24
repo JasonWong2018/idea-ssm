@@ -69,4 +69,6 @@ public class ShiroRealm extends AuthorizingRealm {
         PrincipalCollection principals = SecurityUtils.getSubject().getPrincipals();
         super.clearCache(principals);
     }
+
+    //上传测试
 }

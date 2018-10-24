@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+
+	<plugins>
+		<!-- 分页插件，分页插件必须配置在Mapper插件上面 -->
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<!-- 数据库方言 -->
+			<property name="dialect" value="mysql"/>
+			<!-- 使用rowBounds查询方式时是否查询出数量 -->
+			<property name="rowBoundsWithCount" value="true"/>
+		</plugin>
+		
+		<!-- 通用Mapper插件 -->
+		<plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+			<!-- 主键自增策略，默认值MYSQL，这里和hibernate的方言类似 -->
+			<property name="IDENTITY" value="mysql" />
+			<!-- 通用Mapper接口 ，如果有多个用逗号隔开 -->
+			<property name="mappers" value="com.github.abel533.mapper.Mapper" />
+		</plugin>
+	</plugins>
+</configuration>

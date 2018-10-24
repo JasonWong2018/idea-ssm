@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置缓存管理器 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!-- 指定 ehcache的配置文件-->
+        <property name="cacheManagerConfigFile" value="classpath:spring/shiro-ehcache.xml"/>
+    </bean>
+    <!-- 配置 进行授权和认证的Realm -->
+    <bean id="myRealm" class="com.ssm.shiro.realm.ShiroRealm"></bean>
+
+    <!-- 配置 Shiro 的securityManager Bean -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <!-- 配置Bean 后置处理器： 会自动的调用和Spring整合后各个组件的生命周期方法 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 配置 shiroFilter bean ：该bean 的 id必须和web.xml 文件中的配置的shiro Filter 的name 一致 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 装配securityManager -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 配置登录页面 -->
+        <property name="loginUrl" value="/shiro-login.jsp"/>
+        <!-- 登录成功后的页面 -->
+        <property name="successUrl" value="/shiro-success.jsp"/>
+        <property name="unauthorizedUrl" value="/shiro-unauthorized.jsp"/>
+        <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean
+             defined will be automatically acquired and available via its beanName in chain
+             definitions, but you can perform overrides or parent/child consolidated configuration
+             here if you like: -->
+        <!-- <property name="filters">
+            <util:map>
+                <entry key="aName" value-ref="someFilterPojo"/>
+            </util:map>
+        </property> -->
+        <!-- 具体配置需要拦截哪些URL，以及访问对应的URL时使用Shiro的什么Filter进行拦截 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 配置登出：使用logout过滤器 -->
+                /shiro/login.action = anon
+                /shiro/delete = perms["delete"]
+                /** = authc
+            </value>
+        </property>
+    </bean>
+</beans>
+
+
+

@@ -24,9 +24,10 @@
           class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass"
                   value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/"/>
+        <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
 
     <!-- 配置SpringMVC图片上传解析器 -->
     <!-- <bean id="multipartResolver"
@@ -37,7 +38,7 @@
 
     <!--    <mvc:annotation-driven>
             &lt;!&ndash; 消息转换器 &ndash;&gt;
-            <mvc:message-converters register-defaults="true">
+                <mvc:message-converters register-defaults="true">
                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                     <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
                 </bean>

@@ -1,0 +1,11 @@
+<xml>
+    <class>302</class>
+    <user>
+        <name>jerry</name>
+        <age>18</age>
+        <other>
+            <other1>123</other1>
+            <other2>321</other2>
+        </other>
+    </user>
+</xml>

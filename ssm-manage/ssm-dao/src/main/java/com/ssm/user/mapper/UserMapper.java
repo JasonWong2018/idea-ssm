@@ -1,12 +1,14 @@
 package com.ssm.user.mapper;
 
-import com.ssm.user.domain.User;
-import org.apache.ibatis.annotations.Param;
+import com.github.abel533.mapper.Mapper;
+import com.ssm.user.domain.SysUser;
 import org.springframework.stereotype.Repository;
 
-@Repository("userMapper")
-public interface UserMapper {
-    User getUserById(@Param("id") int id);
+import java.util.List;
+import java.util.Map;
 
-    User findUserByName(@Param("name") String name);
+@Repository("userMapper")
+public interface UserMapper  extends Mapper<SysUser> {
+
+    List<Map<String, Object>> findSysUserList(SysUser sysUser);
 }

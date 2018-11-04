@@ -46,12 +46,9 @@
         <property name="filterChainDefinitions">
             <value>
                 <!-- 配置登出：使用logout过滤器 -->
-                /wxapi/** = anon
+                /user/login.do = anon
+                /user/** = anon
                 /wxapi = anon
-                /weixin = anon
-                /weixin/** = anon
-                /shiro/login.action = anon
-                /shiro/delete = perms["delete"]
                 /** = authc
             </value>
         </property>

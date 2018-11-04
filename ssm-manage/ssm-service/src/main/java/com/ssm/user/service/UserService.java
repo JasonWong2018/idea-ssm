@@ -1,9 +1,13 @@
 package com.ssm.user.service;
 
-import com.ssm.user.domain.User;
+import com.ssm.common.utils.PageUtils;
+import com.ssm.user.domain.SysUser;
+
+import java.util.List;
 
 public interface UserService {
-    User getUserById(int id);
 
-    User findUserByName(String userName);
+    SysUser findUserByUsername(String username);
+
+    List<SysUser> findSysUserList(PageUtils pageUtils, SysUser sysUser);
 }

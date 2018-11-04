@@ -53,8 +53,6 @@ public class UploadController {
                     if (filename == null || filename.trim().equals("")) {
                         continue;
                     }
-
-
                     File file = new File(savePath);
                     // 判断上传文件的保存目录是否存在
                     if (!file.exists() && !file.isDirectory()) {

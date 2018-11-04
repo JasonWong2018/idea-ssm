@@ -72,7 +72,31 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ttr</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.woff</url-pattern>
     </servlet-mapping>
     <!-- //End SpringMVC -->
     <!-- Log4j -->
@@ -97,9 +121,20 @@
 
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </filter-mapping>
 
+    <!--验证码-->
+    <servlet>
+        <servlet-name>validCode</servlet-name>
+        <servlet-class>com.ssm.servlet.BuildValidCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>validCode</servlet-name>
+        <url-pattern>/code.c</url-pattern>
+    </servlet-mapping>
+    <!--验证码-->
+    <!--微信API SERVLET-->
     <servlet>
         <servlet-name>WeixinPublicServlet</servlet-name>
         <servlet-class>com.ssm.weixin.servlet.WeixinPublicServlet</servlet-class>

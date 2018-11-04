@@ -13,7 +13,7 @@
         <property name="cacheManagerConfigFile" value="classpath:spring/shiro-ehcache.xml"/>
     </bean>
     <!-- 配置 进行授权和认证的Realm -->
-    <bean id="myRealm" class="com.ssm.shiro.realm.ShiroRealm"></bean>
+    <bean id="myRealm" class="com.edums.shiro.realm.ShiroRealm"></bean>
 
     <!-- 配置 Shiro 的securityManager Bean -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">

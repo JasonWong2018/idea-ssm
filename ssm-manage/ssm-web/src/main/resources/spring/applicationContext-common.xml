@@ -11,5 +11,5 @@
 
     <import resource="classpath*:applicationContext-service.xml"/>
 
-    <bean id="ServiceBeanUtil" class="com.ssm.common.utils.ServiceBeanUtil"/>
+    <bean id="ServiceBeanUtil" class="com.edums.common.utils.ServiceBeanUtil"/>
 </beans>

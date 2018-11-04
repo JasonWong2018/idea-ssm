@@ -23,7 +23,7 @@
 	<!-- 配置mybatis通用mapper start -->	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource" p:configLocation="classpath:mybatis/mybatis.xml"
-		p:typeAliasesPackage="com.ssm.*.domain">
+		p:typeAliasesPackage="com.edums.*.domain">
 		<property name="mapperLocations">
 			<list>
 				<value>com/ssm/*/mapper/*.xml</value>
@@ -46,7 +46,7 @@
 
 	<!-- 配置Mapper扫描 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.ssm.*.mapper,com.github.abel533.mapper"
+		p:basePackage="com.edums.*.mapper,com.github.abel533.mapper"
 		p:sqlSessionFactoryBeanName="sqlSessionFactory">
 	</bean>
 </beans>

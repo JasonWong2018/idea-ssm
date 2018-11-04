@@ -127,7 +127,7 @@
     <!--验证码-->
     <servlet>
         <servlet-name>validCode</servlet-name>
-        <servlet-class>com.ssm.servlet.BuildValidCode</servlet-class>
+        <servlet-class>com.edums.sys.servlet.BuildValidCode</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>validCode</servlet-name>
@@ -137,7 +137,7 @@
     <!--微信API SERVLET-->
     <servlet>
         <servlet-name>WeixinPublicServlet</servlet-name>
-        <servlet-class>com.ssm.weixin.servlet.WeixinPublicServlet</servlet-class>
+        <servlet-class>com.edums.weixin.servlet.WeixinPublicServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WeixinPublicServlet</servlet-name>
